@@ -1,12 +1,4 @@
-# Assignment 2
-**Due by 11:59pm on Monday, 5/10/2021**<br/>
-**Demo due by 11:59pm on Monday, 5/24/2021**
-
-In this assignment we'll work on a building parser for a small subset of the language Python.  In particular, we'll use the widely-used parser generator [Bison](https://www.gnu.org/software/bison/) to implement a parser that, when combined with the scanner we wrote in assignment 1, will implement a [syntax-directed translation scheme](https://en.wikipedia.org/wiki/Syntax-directed_translation) where the parser itself directly generates C/C++ target code from Python source code.
-
-There are a few major parts to this assignment, described below.  To get you started, you are provided with a Flex scanner specification in `scanner.l` that solves the problem defined in assignment 1.  There is also a makefile that specifies compilation for the scanner.  A simple `main()` function for the scanner is written in `main.cpp`.
-
-## 1. Modify the scanner to work with Bison
+## Modify the scanner to work with Bison
 
 Flex and Bison are designed to easily integrate with each other, but you'll still need to make some modifications to the scanner specification to make it and the parser work together.  These modifications will be easiest to do in stages:
 
@@ -114,20 +106,7 @@ Once you get your translation fully working, you should be able to use `gcc`/`g+
 
 You should be able to type `make` to generate an executable parser from your scanner and parser specifications.
 
-## Testing your parser
+## Testing
 
 There are some simple Python programs you may use for testing your parser included in the `testing_code/` directory.  Some of these programs (i.e. `p*.py`) are syntactically valid, and your parser should be able to translate them successfully.  There are example translations for these programs included in the `example_output/` directory.  Some of the programs in `testing_code/` (i.e. `error*.py`) contain various different syntax errors.  Your parser should fail to translate these programs.
 
-## Submission
-
-We'll be using GitHub Classroom for this assignment, and you will submit your assignment via GitHub.  Make sure your completed files are committed and pushed by the assignment's deadline to the master branch of the GitHub repo that was created for you by GitHub Classroom.  A good way to check whether your files are safely submitted is to look at the master branch your assignment repo on the github.com website (i.e. https://github.com/osu-cs480-sp21/assignment-2-YourGitHubUsername/). If your changes show up there, you can consider your files submitted.
-
-## Grading criteria
-
-The TAs will grade your assignment by compiling and running it on one of the ENGR servers, e.g. `flip.engr.oregonstate.edu`, so you should make sure your code works as expected there.  `bison` and `flex` are installed on the ENGR servers.  If your code does not compile and run on the ENGR servers, the TAs will deduct at least 25 points from your score.
-
-This assignment is worth 100 points total, broken down as follows:
-  * 25 points: scanner is modified to correctly return tokens to the parser
-  * 35 points: grammar rules are correctly set up for the subset of Python described above
-  * 35 points: parser successfully performs syntax-directed translation, as described above
-  * 5 points: makefile is specified to fully generate an executable parser
